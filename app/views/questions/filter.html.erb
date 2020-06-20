@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <hr/>
+      <h1>All Questions</h1>
+      <hr/>
+      <% @questions.each do |question| %>
+        <p><b><%= link_to  question.content, question_path(question)%></b></p>
+        <h6><%= question.comments.length %> comments</h6>
+        <% if question.inactive? || question.created? %>
+          <form action="/questions/activate" method="post">
+            <%= csrf_meta_tags %>
+            <input type="hidden" value="<%= question.id %>" name="id" />
+            <input type="submit" value="Activate" class="btn btn-sm btn-primary">
+          </form>
+        <% elsif question.active? %>
+          <form action="/questions/deactivate" method="post">
+            <%= csrf_meta_tags %>
+            <input type="hidden" value="<%= question.id %>" name="id" />
+            <input type="submit" value="Deactivate" class="btn btn-sm btn-warning">
+          </form>
+        <% end %>
+        <hr/>
+      <% end %>
+    </div>
+  </div>
+</div>

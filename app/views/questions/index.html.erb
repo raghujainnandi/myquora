@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <hr/>
+      <h1>All Questions</h1>
+      <hr/>
+      <% @questions.each do |question| %>
+
+        <p><b><%= link_to  question.content, question_path(question)%></b></p>
+        <h6><%= question.comments.length %> comments</h6>
+        <hr/>
+      <% end %>
+    </div>
+  </div>
+</div>

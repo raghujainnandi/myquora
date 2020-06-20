@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+     <hr/>
+      <h2> Add Question</h2>
+      <hr/>
+      <%= form_for :questions, url: questions_path, :html => {:class => "form-horizontal"} do |f| %>
+        <p>
+         <b><%= f.label :content %></b> <br>
+          <%= f.text_area :content, class: 'form-control' %>
+        </p>
+        <p>
+          <%= f.submit class: 'btn btn-primary'%>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <%= link_to "Import Questions", questions_import_path, class: 'btn btn-warning'%>
+    </div>
+  </div>
+</div>

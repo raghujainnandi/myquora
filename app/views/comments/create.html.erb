@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h2> Add Comment</h2>
+      <hr/>
+      <%= form_for :comments, url: comments_path, :html => {:class => "form-horizontal"} do |f| %>
+        <p>
+          <%= f.label :content %><br>
+          <%= f.text_area :content, class: 'form-control' %>
+        </p>
+        <p>
+          <%= f.submit %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

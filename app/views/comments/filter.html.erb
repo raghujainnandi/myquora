@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <hr/>
+      <h1>All Comments</h1>
+      <hr/>
+      <% @comments.each do |comment| %>
+        <p><b><%= comment.question.content %></b></p>
+<!--        <h6><%#= question.comments.length %> comments</h6>-->
+        <p>Comment: <%= comment.content %></p>
+        <% if comment.inactive? || comment.created? %>
+          <form action="/comments/activate" method="post">
+            <%= csrf_meta_tags %>
+            <input type="hidden" value="<%= comment.id %>" name="id" />
+            <input type="submit" value="Activate" class="btn btn-sm btn-primary">
+          </form>
+        <% elsif comment.active? %>
+          <form action="/comments/deactivate" method="post">
+            <%= csrf_meta_tags %>
+            <input type="hidden" value="<%= comment.id %>" name="id" />
+            <input type="submit" value="Deactivate" class="btn btn-sm btn-warning">
+          </form>
+        <% end %>
+        <hr/>
+      <% end %>
+    </div>
+  </div>
+</div>
+
