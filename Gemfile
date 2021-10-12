@@ -13,7 +13,7 @@ gem 'aasm', '~> 4.11', '>= 4.11.1'
 
 gem 'after_commit_everywhere', '~> 0.1', '>= 0.1.5'
 
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 #Authentication
 gem 'devise', '~> 4.7', '>= 4.7.2'
 # Use SCSS for stylesheets
